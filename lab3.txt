@@ -1,0 +1,89 @@
+from sys import stdin
+zn = [int(i) for elem in stdin.readline().split(' ')]
+n = len(zn)
+
+def countMin(n):
+    flag = 0
+    while n >= 64:
+        flag += n & 1
+        n >>= 1
+    return n + flag
+
+minrun = countMin(n)
+
+def merge(zn, left, mid, right):
+    it1 = 0
+    it2 = 0
+    result = [0] * (right - left)
+  
+    while left + it1 < mid and mid + it2 < right:
+        if a[left + it1] < a[mid + it2]:
+            result[it1 + it2] = a[left + it1]
+            it1 += 1
+        else:
+            result[it1 + it2] = a[mid + it2]
+            it2 += 1
+  
+    while left + it1 < mid:
+        result[it1 + it2] = a[left + it1]
+        it1 += 1
+  
+    while mid + it2 < right:
+        result[it1 + it2] = a[mid + it2]
+        it2 += 1
+  
+    for i in range(0, it1 + it2):
+        a[left + i] = result[i] 
+
+def insertionSort(zn):
+    for i in range(0, n):
+        j = i - 1
+        while j >= 0 and a[j] > a[j + 1]:
+            x = a[j + 1]
+            a[j + 1] = a[j]
+            a[j] = x
+            j -= 1from sys import stdin
+zn = [int(i) for elem in stdin.readline().split(' ')]
+n = len(zn)
+
+def countMin(n):
+    flag = 0
+    while n >= 64:
+        flag += n & 1
+        n >>= 1
+    return n + flag
+
+minrun = countMin(n)
+
+def merge(zn, left, mid, right):
+    it1 = 0
+    it2 = 0
+    result = [0] * (right - left)
+  
+    while left + it1 < mid and mid + it2 < right:
+        if a[left + it1] < a[mid + it2]:
+            result[it1 + it2] = a[left + it1]
+            it1 += 1
+        else:
+            result[it1 + it2] = a[mid + it2]
+            it2 += 1
+  
+    while left + it1 < mid:
+        result[it1 + it2] = a[left + it1]
+        it1 += 1
+  
+    while mid + it2 < right:
+        result[it1 + it2] = a[mid + it2]
+        it2 += 1
+  
+    for i in range(0, it1 + it2):
+        a[left + i] = result[i] 
+
+def insertionSort(zn):
+    for i in range(0, n):
+        j = i - 1
+        while j >= 0 and a[j] > a[j + 1]:
+            x = a[j + 1]
+            a[j + 1] = a[j]
+            a[j] = x
+            j -= 1
